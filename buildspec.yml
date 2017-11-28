@@ -8,7 +8,8 @@ phases:
   pre_build:
     commands:
       - echo Entering pre_build phase...
-      - echo Nothing to do in the pre_build phase...
+      - echo Installing light streamer lib
+      - mvn install:install-file -"Dfile=ig-webapi-java-client/lib/ls-client.6.0.2.20160510.jar" -DgroupId="com.lightstreamer" -DartifactId="sdk.client.java.se" -Dversion="6.0.2.20160510" -Dpackaging="jar"
   build:
     commands:
       - echo Entering build phase...
@@ -18,7 +19,6 @@ phases:
     commands:
       - echo Entering post_build phase...
       - echo Build completed on `date`
-      - mv target/ROOT .
 artifacts:
   files:
     - '**/IG.war'
