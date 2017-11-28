@@ -22,5 +22,5 @@ phases:
       - mvn package
 artifacts:
   files:
-    - 'ig-webapi-java-sample-console/target/IG.war'
+    - ig-webapi-java-sample-console/target/IG.war
   discard-paths: yes
