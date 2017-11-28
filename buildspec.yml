@@ -19,8 +19,8 @@ phases:
     commands:
       - echo Entering post_build phase...
       - echo Build completed on `date`
+      - mvn package
 artifacts:
   files:
-    - '**/IG.war'
-  base-directory: 'ig-webapi-java-sample-console/*'
+    - 'ig-webapi-java-sample-console/target/IG.war'
   discard-paths: yes
