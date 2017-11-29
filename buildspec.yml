@@ -21,7 +21,7 @@ phases:
       - echo Build completed on `date`
       - mvn package
 artifacts:
-  type: war
   files:
     - ig-webapi-java-sample-console/target/IG.war
+    - .ebextensions/**/*
   discard-paths: yes
