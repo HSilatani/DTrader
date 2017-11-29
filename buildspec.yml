@@ -20,8 +20,8 @@ phases:
       - echo Entering post_build phase...
       - echo Build completed on `date`
       - mvn package
+      - mv ig-webapi-java-sample-console/target/IG.war IG.war
 artifacts:
   files:
-    - ig-webapi-java-sample-console/target/IG.war
+    - IG.war
     - .ebextensions/**/*
-  discard-paths: yes
