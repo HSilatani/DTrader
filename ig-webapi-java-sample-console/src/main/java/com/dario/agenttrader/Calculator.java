@@ -23,15 +23,24 @@ public class Calculator {
     }
 
     public String calPandLString(PositionsItem position, GetPricesByNumberOfPointsV2Response prices) throws Exception {
+        String strPandL = "NA";
+        try{
+            strPandL = NumberFormat.getCurrencyInstance().format(calPandL(position,prices));
+        }catch (Exception ex){
 
-        return NumberFormat.getCurrencyInstance().format(calPandL(position,prices));
+        }
+        return strPandL;
     }
 
     private BigDecimal calculatePriceDifference(Direction direction,
                                                BigDecimal openLevel,
                                                GetPricesByNumberOfPointsV2Response prices) throws Exception {
 
+        if (prices.getPrices().size()<1){
+            throw new Exception("Price not Found");
+        }
         if(direction.name().equalsIgnoreCase("buy")){
+
             return prices.getPrices().get(0).getClosePrice().getBid().subtract(openLevel);
 
         }else if(direction.name().equalsIgnoreCase("sell")){
